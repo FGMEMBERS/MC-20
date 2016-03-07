@@ -1,0 +1,102 @@
+<?xml version="1.0"?>
+ 
+<PropertyList>
+
+ <fx>
+ 
+  <crank>
+   <name>engstart</name>
+   <path>Sounds/engstart.wav</path>
+   <property>/engines/engine/cranking</property>
+   <volume>
+    <offset>-0.4</offset>
+   </volume>
+  </crank>
+
+  <crank>
+   <name>crank</name>
+   <mode>looped</mode>
+   <path>Sounds/p51d_starter.wav</path>
+   <condition>
+    <property>/engines/engine/cranking</property>
+    <not>
+     <property>/engines/engine/running</property>
+    </not>
+   </condition>
+   <volume>
+    <offset>-0.5</offset>
+   </volume>
+   <pitch>
+    <property>/engines/engine/cranking</property>
+    <factor>1.0</factor>
+   </pitch>
+  </crank>
+
+  <crank>
+   <name>cough</name>
+   <path>Sounds/p51d_startup.wav</path>
+   <property>/engines/engine/running</property>
+   <volume>
+    <offset>-0.50</offset>
+   </volume>
+   <pitch>
+    <property>/engines/engine/running</property>
+    <factor>1.0</factor>
+   </pitch>
+  </crank>
+
+  <engine>
+   <name>engine</name>
+   <mode>looped</mode>
+   <path>Sounds/p51d_rpm1.wav</path>
+   <condition>
+    <property>/engines/engine/running</property>
+    <less-than>
+    <property>/engines/engine/rpm</property>
+    <value>5000</value>
+    </less-than>
+   </condition>
+   <volume>
+    <property>/engines/engine/rpm</property>
+    <factor>0.00033</factor>
+    <min>0.2</min>
+    <max>1.0</max>
+    <offset>0.0</offset>
+   </volume>
+   <pitch>
+    <property>/engines/engine/rpm</property>
+    <factor>0.00033</factor>
+    <min>0.0</min>
+    <max>1.0</max>
+   </pitch>
+  </engine>
+
+  <engine>
+   <name>enginerun</name>
+   <mode>looped</mode>
+   <path>Sounds/wasp.wav</path>
+   <condition>
+    <property>/engines/engine/running</property>
+    <greater-than>
+    <property>/engines/engine/rpm</property>
+    <value>400</value>
+    </greater-than>
+   </condition>
+   <volume>
+    <property>/engines/engine/rpm</property>
+    <factor>0.00033</factor>
+    <min>0.0</min>
+    <max>1.00</max>
+    <offset>0.0</offset>
+   </volume>
+   <pitch>
+    <property>/engines/engine/rpm</property>
+    <factor>0.00033</factor>
+    <min>0.0</min>
+    <max>1.0</max>
+   </pitch>
+  </engine>
+
+</fx>
+ 
+</PropertyList>

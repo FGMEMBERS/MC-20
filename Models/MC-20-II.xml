@@ -1,0 +1,18 @@
+<?xml version="1.0" encoding="UTF-8"?>
+
+<PropertyList>
+
+  <model>
+	<path>Aircraft/MC-20/Models/MC-20-IIb.xml</path>
+    <offsets>
+      <x-m>  0.000 </x-m>
+      <y-m>  0.000 </y-m>
+      <z-m>  0.0 </z-m>
+      <!--<pitch-deg> 3.000 </pitch-deg>-->
+      <pitch-deg> 0.000 </pitch-deg>
+    </offsets>
+  </model>
+
+
+</PropertyList>
+

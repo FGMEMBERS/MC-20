@@ -1,0 +1,555 @@
+<?xml version="1.0" encoding="UTF-8"?>
+
+<PropertyList>
+
+	<path>Aircraft/MC-20/Models/mc-20.ac</path>
+
+  <nasal>
+    <load>
+      var livery_update = aircraft.livery_update.new("Aircraft/MC-20/Models/Liveries", 10);
+    </load>
+    <unload>
+      livery_update.stop();
+    </unload>
+  </nasal>
+
+  <animation>
+    <object-name>fuselage</object-name>
+    <object-name>wing</object-name>
+    <object-name>hstab</object-name>
+    <object-name>vstab</object-name>
+    <object-name>cockpit</object-name>
+    <object-name>door</object-name>
+    <object-name>engine-r</object-name>
+    <object-name>engine-l</object-name>
+    <object-name>prop-r</object-name>
+    <object-name>propdisc1-r</object-name>
+    <object-name>propdisc2-r</object-name>
+    <object-name>prop-l</object-name>
+    <object-name>propdisc1-l</object-name>
+    <object-name>propdisc2-l</object-name>
+    <object-name>spiner-r</object-name>
+    <object-name>spiner-l</object-name>
+    <object-name>gearstrutupper-r</object-name>
+    <object-name>gearstrutlower-r</object-name>
+    <object-name>geararm-r</object-name>
+    <object-name>gearwheel-r</object-name>
+    <object-name>gearstrutupper-l</object-name>
+    <object-name>gearstrutlower-l</object-name>
+    <object-name>geararm-l</object-name>
+    <object-name>gearwheel-l</object-name>
+    <object-name>intake-r</object-name>
+    <object-name>intake-l</object-name>
+    <object-name>oilcooler-r</object-name>
+    <object-name>oilcooler-l</object-name>
+    <object-name>exhaustpipe-r</object-name>
+    <object-name>exhaustpipe-l</object-name>
+    <object-name>gearwheel</object-name>
+    <object-name>tailwheel</object-name>
+    <object-name>pitot</object-name>
+    <object-name>strut</object-name>
+ </animation>
+
+
+   <!-- Transparent Surfaces for Rembrandt rendering -->
+   <effect>
+       <inherits-from>Effects/model-transparent</inherits-from>
+       <!--<inherits-from>Aircraft/Generic/Effects/Fuselagereflect</inherits-from>-->
+    <condition>
+      <property>sim/rendering/rembrandt/enabled</property>
+    </condition>
+    <object-name>propdisc1-r</object-name>
+    <object-name>propdisc2-r</object-name>
+    <object-name>propdisc1-l</object-name>
+    <object-name>propdisc2-l</object-name>
+   </effect>
+
+  <animation>
+    <type>material</type>
+    <object-name>fuselage</object-name>
+    <object-name>wing</object-name>
+    <object-name>hstab</object-name>
+    <object-name>vstab</object-name>
+    <object-name>cockpit</object-name>
+    <object-name>door</object-name>
+    <object-name>engine-r</object-name>
+    <object-name>engine-l</object-name>
+    <object-name>prop-r</object-name>
+    <object-name>propdisc1-r</object-name>
+    <object-name>propdisc2-r</object-name>
+    <object-name>prop-l</object-name>
+    <object-name>propdisc1-l</object-name>
+    <object-name>propdisc2-l</object-name>
+    <object-name>spiner-r</object-name>
+    <object-name>spiner-l</object-name>
+    <object-name>gearstrutupper-r</object-name>
+    <object-name>gearstrutlower-r</object-name>
+    <object-name>geararm-r</object-name>
+    <object-name>gearwheel-r</object-name>
+    <object-name>gearstrutupper-l</object-name>
+    <object-name>gearstrutlower-l</object-name>
+    <object-name>geararm-l</object-name>
+    <object-name>gearwheel-l</object-name>
+    <object-name>intake-r</object-name>
+    <object-name>intake-l</object-name>
+    <object-name>oilcooler-r</object-name>
+    <object-name>oilcooler-l</object-name>
+    <object-name>exhaustpipe-r</object-name>
+    <object-name>exhaustpipe-l</object-name>
+    <object-name>gearwheel</object-name>
+    <object-name>tailwheel</object-name>
+    <object-name>pitot</object-name>
+    <object-name>strut</object-name>
+
+
+    <!--<property-base>sim/model/livery</property-base>
+    <texture-prop>texture</texture-prop>
+    <texture>texture.png</texture>-->
+  </animation>
+
+
+<animation>
+  <type>select</type>
+  <object-name>propdisc2_r</object-name>
+  <condition>
+   <greater-than>
+      <property>/instrumentation/airspeed-indicator/indicated-speed-kt</property>
+    <value>100.000</value>
+   </greater-than>
+  </condition>
+ </animation>
+
+<animation>
+  <type>select</type>
+  <object-name>propdisc1_r</object-name>
+  <condition>
+  <and>
+   <greater-than>
+      <property>/instrumentation/airspeed-indicator/indicated-speed-kt</property>
+    <value>10.000</value>
+   </greater-than>
+   <less-than>
+      <property>/instrumentation/airspeed-indicator/indicated-speed-kt</property>
+    <value>100.001</value>
+   </less-than>
+   </and>
+  </condition>
+ </animation>
+
+ <animation>
+  <type>select</type>
+  <object-name>prop_r</object-name>
+  <condition>
+   <less-than>
+      <property>/instrumentation/airspeed-indicator/indicated-speed-kt</property>
+    <value>10.001</value>
+   </less-than>
+  </condition>
+ </animation>
+
+<animation>
+  <type>select</type>
+  <object-name>propdisc2_l</object-name>
+  <condition>
+   <greater-than>
+      <property>/instrumentation/airspeed-indicator/indicated-speed-kt</property>
+    <value>100.000</value>
+   </greater-than>
+  </condition>
+ </animation>
+
+<animation>
+  <type>select</type>
+  <object-name>propdisc1_l</object-name>
+  <condition>
+  <and>
+   <greater-than>
+      <property>/instrumentation/airspeed-indicator/indicated-speed-kt</property>
+    <value>10.000</value>
+   </greater-than>
+   <less-than>
+      <property>/instrumentation/airspeed-indicator/indicated-speed-kt</property>
+    <value>100.001</value>
+   </less-than>
+   </and>
+  </condition>
+ </animation>
+
+ <animation>
+  <type>select</type>
+  <object-name>prop_l</object-name>
+  <condition>
+   <less-than>
+        <property>/instrumentation/airspeed-indicator/indicated-speed-kt</property>
+    <value>10.001</value>
+   </less-than>
+  </condition>
+ </animation>
+
+ <animation>
+  <type>spin</type>
+  <object-name>prop_r</object-name>
+      <property>/instrumentation/airspeed-indicator/indicated-speed-kt</property>
+    <factor> 30 </factor>
+  <center>
+  <x-m>-6.0</x-m>
+   <y-m>2.70</y-m>
+   <z-m>-0.62</z-m>
+  </center>
+  <axis>
+   <x>-1.0</x>
+   <y>0.0</y>
+   <z>0.0</z>
+  </axis>
+ </animation>
+ 
+ <animation>
+  <type>spin</type>
+  <object-name>prop_l</object-name>
+      <property>/instrumentation/airspeed-indicator/indicated-speed-kt</property>
+    <factor> 30 </factor>
+  <center>
+  <x-m>-6.0</x-m>
+   <y-m>-2.70</y-m>
+   <z-m>-0.62</z-m>
+  </center>
+  <axis>
+   <x>-1.0</x>
+   <y>0.0</y>
+   <z>0.0</z>
+  </axis>
+ </animation>
+
+ <animation>
+  <type>spin</type>
+  <object-name>propdisc1_r</object-name>
+      <property>/instrumentation/airspeed-indicator/indicated-speed-kt</property>
+    <factor> 30 </factor>
+  <center>
+  <x-m>-6.0</x-m>
+   <y-m>2.70</y-m>
+   <z-m>-0.62</z-m>
+  </center>
+  <axis>
+   <x>-1.0</x>
+   <y>0.0</y>
+   <z>0.0</z>
+  </axis>
+ </animation>
+
+ <animation>
+  <type>spin</type>
+  <object-name>propdisc2_r</object-name>
+      <property>/instrumentation/airspeed-indicator/indicated-speed-kt</property>
+    <factor> 30 </factor>
+  <center>
+  <x-m>-6.0</x-m>
+   <y-m>2.70</y-m>
+   <z-m>-0.62</z-m>
+  </center>
+  <axis>
+   <x>-1.0</x>
+   <y>0.0</y>
+   <z>0.0</z>
+  </axis>
+ </animation>
+ 
+ <animation>
+  <type>spin</type>
+  <object-name>propdisc1_l</object-name>
+      <property>/instrumentation/airspeed-indicator/indicated-speed-kt</property>
+    <factor> 30 </factor>
+  <center>
+  <x-m>-6.0</x-m>
+   <y-m>-2.70</y-m>
+   <z-m>-0.62</z-m>
+  </center>
+  <axis>
+   <x>-1.0</x>
+   <y>0.0</y>
+   <z>0.0</z>
+  </axis>
+ </animation>
+
+ <animation>
+  <type>spin</type>
+  <object-name>propdisc2_l</object-name>
+      <property>/instrumentation/airspeed-indicator/indicated-speed-kt</property>
+    <factor> 30 </factor>
+  <center>
+  <x-m>-6.0</x-m>
+   <y-m>-2.70</y-m>
+   <z-m>-0.62</z-m>
+  </center>
+  <axis>
+   <x>-1.0</x>
+   <y>0.0</y>
+   <z>0.0</z>
+  </axis>
+ </animation>
+
+<!-- GEAR -->
+
+<animation>
+ <type>translate</type>
+ <object-name>gearwheel-r</object-name>
+ <object-name>gearstrutlower-r</object-name>
+ <object-name>gearstrutupper-r</object-name>
+ <property>gear/gear[0]/compression-ft</property>
+ <factor>0.33</factor>
+ <axis>
+  <x>0</x>
+  <y>0</y>
+  <z>1</z>
+ </axis>
+</animation>
+
+<animation>
+ <type>rotate</type>
+ <object-name>geararm-r</object-name>
+ <property>gear/gear[0]/compression-ft</property>
+ <factor>8</factor>
+ <center>
+  <!--<x-m>-2.416</x-m>
+  <y-m> 2.453</y-m>
+  <z-m>-1.190</z-m>
+  <x-m>-1.900</x-m>
+  <y-m> 2.700</y-m>
+  <z-m>-1.900</z-m>-->
+  <x-m>-2.140</x-m>
+  <y-m> 2.700</y-m>
+  <z-m>-0.800</z-m>
+ </center>
+ <axis>
+  <x>0</x>
+  <y>1</y>
+  <z>0</z>
+ </axis>
+</animation>
+
+<animation>
+ <type>rotate</type>
+ <object-name>geararm-r</object-name>
+ <object-name>gearwheel-r</object-name>
+ <object-name>gearstrutlower-r</object-name>
+ <property>gear/gear[0]/position-norm</property>
+ <interpolation>
+  <entry>
+   <ind>0.0</ind>
+   <!--<dep>40.0</dep>-->
+   <dep>36.0</dep>
+  </entry>
+  <entry>
+   <ind>1</ind>
+   <!--<dep>0.0</dep>-->
+   <dep>0.0</dep>
+  </entry>
+ </interpolation>
+ <center>
+  <!--<x-m>-2.416</x-m>
+  <y-m> 2.453</y-m>
+  <z-m>-1.190</z-m>
+  <x-m>-1.900</x-m>
+  <y-m> 2.700</y-m>
+  <z-m>-1.900</z-m>-->
+  <x-m>-2.140</x-m>
+  <y-m> 2.700</y-m>
+  <z-m>-0.800</z-m>
+ </center>
+ <axis>
+  <x>0</x>
+  <y>1</y>
+  <z>0</z>
+ </axis>
+</animation>
+
+<animation>
+ <type>rotate</type>
+ <object-name>gearstrutlower-r</object-name>
+ <property>gear/gear[0]/position-norm</property>
+ <interpolation>
+  <entry>
+   <ind>0.0</ind>
+   <dep>-120.0</dep>
+  </entry>
+  <entry>
+   <ind>1</ind>
+   <dep>0.0</dep>
+  </entry>
+ </interpolation>
+ <center>
+  <!--<x-m>-4.002</x-m>
+  <y-m> 2.453</y-m>
+  <z-m>-2.708</z-m>-->
+  <x-m>-3.680</x-m>
+  <y-m> 2.700</y-m>
+  <z-m>-2.130</z-m>
+ </center>
+ <axis>
+  <x>0</x>
+  <y>1</y>
+  <z>0</z>
+ </axis>
+</animation>
+
+<animation>
+ <type>rotate</type>
+ <object-name>gearstrutupper-r</object-name>
+ <property>gear/gear[0]/position-norm</property>
+ <interpolation>
+  <entry>
+   <ind>0.0</ind>
+   <!--<dep>60.0</dep>-->
+   <dep>60.0</dep>
+  </entry>
+  <entry>
+   <ind>1</ind>
+   <dep>0.0</dep>
+  </entry>
+ </interpolation>
+ <center>
+  <!--<x-m>-4.002</x-m>
+  <y-m> 2.453</y-m>
+  <z-m>-0.289</z-m>
+  <x-m>-3.680</x-m>
+  <y-m> 2.700</y-m>
+  <z-m>-0.289</z-m>-->
+  <x-m>-3.680</x-m>
+  <y-m> 2.700</y-m>
+  <z-m> 0.400</z-m>
+ </center>
+ <axis>
+  <x>0</x>
+  <y>1</y>
+  <z>0</z>
+ </axis>
+</animation>
+
+
+<animation>
+ <type>translate</type>
+ <object-name>gearwheel-l</object-name>
+ <object-name>gearstrutlower-l</object-name>
+ <object-name>gearstrutupper-l</object-name>
+ <property>gear/gear[0]/compression-ft</property>
+ <factor>0.33</factor>
+ <axis>
+  <x>0</x>
+  <y>0</y>
+  <z>1</z>
+ </axis>
+</animation>
+
+<animation>
+ <type>rotate</type>
+ <object-name>geararm-l</object-name>
+ <property>gear/gear[0]/compression-ft</property>
+ <factor>8</factor>
+ <center>
+  <!--<x-m>-2.416</x-m>
+  <y-m>-2.453</y-m>
+  <z-m>-1.190</z-m>-->
+  <x-m>-2.140</x-m>
+  <y-m>-2.700</y-m>
+  <z-m>-0.800</z-m>
+ </center>
+ <axis>
+  <x>0</x>
+  <y>1</y>
+  <z>0</z>
+ </axis>
+</animation>
+
+<animation>
+ <type>rotate</type>
+ <object-name>geararm-l</object-name>
+ <object-name>gearwheel-l</object-name>
+ <object-name>gearstrutlower-l</object-name>
+ <property>gear/gear[0]/position-norm</property>
+ <interpolation>
+  <entry>
+   <ind>0.0</ind>
+   <!--<dep>40.0</dep>-->
+   <dep>36.0</dep>
+  </entry>
+  <entry>
+   <ind>1</ind>
+   <dep>0.0</dep>
+  </entry>
+ </interpolation>
+ <center>
+  <!--<x-m>-2.140</x-m>
+  <y-m>-2.700</y-m>
+  <z-m>-1.000</z-m>-->
+  <x-m>-2.140</x-m>
+  <y-m>-2.700</y-m>
+  <z-m>-0.800</z-m>
+ </center>
+ <axis>
+  <x>0</x>
+  <y>1</y>
+  <z>0</z>
+ </axis>
+</animation>
+
+<animation>
+ <type>rotate</type>
+ <object-name>gearstrutlower-l</object-name>
+ <property>gear/gear[0]/position-norm</property>
+ <interpolation>
+  <entry>
+   <ind>0.0</ind>
+   <dep>-120.0</dep>
+  </entry>
+  <entry>
+   <ind>1</ind>
+   <dep>0.0</dep>
+  </entry>
+ </interpolation>
+ <center>
+  <!--<x-m>-4.002</x-m>
+  <y-m>-2.453</y-m>
+  <z-m>-2.708</z-m>-->
+  <x-m>-3.680</x-m>
+  <y-m>-2.700</y-m>
+  <z-m>-2.130</z-m>
+ </center>
+ <axis>
+  <x>0</x>
+  <y>1</y>
+  <z>0</z>
+ </axis>
+</animation>
+
+<animation>
+ <type>rotate</type>
+ <object-name>gearstrutupper-l</object-name>
+ <property>gear/gear[0]/position-norm</property>
+ <interpolation>
+  <entry>
+   <ind>0.0</ind>
+   <!--<dep>60.0</dep>-->
+   <dep>60.0</dep>
+  </entry>
+  <entry>
+   <ind>1</ind>
+   <dep>0.0</dep>
+  </entry>
+ </interpolation>
+ <center>
+  <!--<x-m>-4.002</x-m>
+  <y-m>-2.453</y-m>
+  <z-m>-0.289</z-m>-->
+  <x-m>-3.680</x-m>
+  <y-m>-2.700</y-m>
+  <z-m> 0.400</z-m>
+ </center>
+ <axis>
+  <x>0</x>
+  <y>1</y>
+  <z>0</z>
+ </axis>
+</animation>
+
+</PropertyList>
+
